@@ -5,7 +5,7 @@ import './index.css';
 
 export const App = () => {
 	return (
-		<div className='flex flex-col min-h-svh '>
+		<div className='flex flex-col min-h-svh'>
 			<Header />
 			<main className='flex-1'></main>
 			<Footer />
