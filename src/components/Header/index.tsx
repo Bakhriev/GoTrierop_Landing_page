@@ -9,7 +9,7 @@ export const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	return (
-		<header className='py-4 bg-black'>
+		<header className='absolute left-0 z-10 w-full py-4'>
 			<Container>
 				<div className='flex items-center justify-between'>
 					<img
@@ -20,8 +20,8 @@ export const Header = () => {
 
 					<nav
 						className={clsx(
-							'lg:fixed z-20 lg:top-0 lg:right-0 lg:w-[320px] lg:bg-gray-800 lg:h-full lg:bottom-0 lg:overflow-y-auto lg:py-20 lg:translate-x-full lg:transition-all',
-							isMenuOpen && 'lg:translate-x-0'
+							'lg:fixed lg:top-0 lg:right-0 lg:w-[320px] lg:bg-gray-800 lg:h-full lg:bottom-0 lg:overflow-y-auto lg:py-20 lg:translate-x-full lg:transition-all',
+							isMenuOpen && 'lg:transform-none'
 						)}>
 						<ul className='flex gap-20 lg:flex-col lg:gap-10 lg:items-center'>
 							<li>
@@ -79,7 +79,7 @@ export const Header = () => {
 						<button className='font-medium text-white hover:text-gray-300 active:text-gray-400'>
 							Sign up
 						</button>
-						<button className='py-3 px-11 font-medium btnGradient text-white bg-btnGradient rounded-full active:scale-[0.98] lg:px-4 lg:py-2 leading-5 lg:rounded-lg'>
+						<button className='py-3 px-11 font-medium text-white bg-btnGradient rounded-full active:scale-[0.98] lg:px-4 lg:py-2 leading-5 lg:rounded-lg'>
 							Login
 						</button>
 
