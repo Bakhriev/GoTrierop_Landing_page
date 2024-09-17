@@ -1,4 +1,4 @@
-import cn from 'classnames';
+import clsx from 'clsx/lite';
 
 interface IContainer {
 	cls?: string;
@@ -7,7 +7,7 @@ interface IContainer {
 
 export const Container: React.FC<IContainer> = ({ cls, children }) => {
 	return (
-		<div className={cn(`m-auto max-w-[1260px] w-full px-[15px] ${cls || ''}`)}>
+		<div className={clsx('m-auto max-w-[1260px] w-full px-[15px]', cls || '')}>
 			{children}
 		</div>
 	);

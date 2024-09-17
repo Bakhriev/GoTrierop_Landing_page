@@ -1,6 +1,13 @@
+import clsx from 'clsx/lite';
+
+import { useState } from 'react';
+
 import { Container } from '../Container';
 
 export const Header = () => {
+	const [activeLink, setActiveLink] = useState(0);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 	return (
 		<header className='py-4 bg-black'>
 			<Container>
@@ -11,27 +18,57 @@ export const Header = () => {
 						alt='logo'
 					/>
 
-					<nav className='lg:fixed z-20 lg:top-0 lg:right-0 lg:w-[320px] lg:bg-gray-800 lg:h-full lg:bottom-0 lg:overflow-y-auto lg:py-20 lg:translate-x-full'>
+					<nav
+						className={clsx(
+							'lg:fixed z-20 lg:top-0 lg:right-0 lg:w-[320px] lg:bg-gray-800 lg:h-full lg:bottom-0 lg:overflow-y-auto lg:py-20 lg:translate-x-full lg:transition-all',
+							isMenuOpen && 'lg:translate-x-0'
+						)}>
 						<ul className='flex gap-20 lg:flex-col lg:gap-10 lg:items-center'>
 							<li>
 								<a
-									className='relative font-medium text-white before:w-[78%] before:h-1 before:bg-white before:absolute before:top-[calc(100%+2px)] before:rounded-full'
+									onClick={() => setActiveLink(0)}
+									className={clsx(
+										'relative font-medium text-white',
+										activeLink === 0 &&
+											'before:w-[78%] before:h-1 before:bg-white before:absolute before:top-[calc(100%+2px)] before:rounded-full'
+									)}
 									href='#'>
 									Home
 								</a>
 							</li>
 							<li>
-								<a className='font-medium text-white' href='#'>
+								<a
+									onClick={() => setActiveLink(1)}
+									className={clsx(
+										'relative font-medium text-white',
+										activeLink === 1 &&
+											'before:w-[78%] before:h-1 before:bg-white before:absolute before:top-[calc(100%+2px)] before:rounded-full'
+									)}
+									href='#'>
 									Services
 								</a>
 							</li>
 							<li>
-								<a className='font-medium text-white' href='#'>
+								<a
+									onClick={() => setActiveLink(2)}
+									className={clsx(
+										'relative font-medium text-white',
+										activeLink === 2 &&
+											'before:w-[78%] before:h-1 before:bg-white before:absolute before:top-[calc(100%+2px)] before:rounded-full'
+									)}
+									href='#'>
 									Pricing
 								</a>
 							</li>
 							<li>
-								<a className='font-medium text-white' href='#'>
+								<a
+									onClick={() => setActiveLink(3)}
+									className={clsx(
+										'relative font-medium text-white',
+										activeLink === 3 &&
+											'before:w-[78%] before:h-1 before:bg-white before:absolute before:top-[calc(100%+2px)] before:rounded-full'
+									)}
+									href='#'>
 									Contact
 								</a>
 							</li>
@@ -46,7 +83,9 @@ export const Header = () => {
 							Login
 						</button>
 
-						<button className='hidden lg:flex w-6 h-3 flex-col justify-between'>
+						<button
+							onClick={() => setIsMenuOpen(!isMenuOpen)}
+							className='relative z-20 hidden lg:flex w-6 h-3 flex-col justify-between'>
 							<span className='inline-block bg-white h-[1px] w-full rounded-full'></span>
 							<span className='inline-block bg-white h-[1px] w-full rounded-full'></span>
 							<span className='inline-block bg-white h-[1px] w-full rounded-full'></span>
